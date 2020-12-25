@@ -20,7 +20,7 @@ services:
             TUMBLR_API_KEY: $$cap_tumblr_key
             TUMBLR_SECRET_KEY: $$cap_tumblr_secret
         volumes:
-            - $$cap_appname-conf:/tumbly/conf
+            - $$cap_appname-conf:/conf
 caproverOneClickApp:
     variables:
         - id: $$cap_tumbly_version
