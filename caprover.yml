@@ -1,0 +1,62 @@
+#-------------------------------------------
+# one-click-app for https://github.com/caprover/caprover
+# @kgnfth
+# Repo : https://github.com/kgnfth/Tumbly-Docker
+#-------------------------------------------
+
+captainVersion: 4
+services:
+    # Tumbly
+    $$cap_appname:
+        image: kgnfth/tumbly:$$cap_tumbly_version
+        restart: always
+        environment:
+            PUID: $$cap_puid
+            PGID: $$cap_guid
+            PHP_TZ: $$cap_tz
+            APP_NAME: $$cap_app_name
+            APP_ENV: local
+            APP_URL: http://$$cap_appname.$$cap_root_domain
+            TUMBLR_API_KEY: $$cap_tumblr_key
+            TUMBLR_SECRET_KEY: $$cap_tumblr_secret
+        volumes:
+            - $$cap_appname-conf:/tumbly/conf
+caproverOneClickApp:
+    variables:
+        - id: $$cap_tumbly_version
+          label: Ackee Version
+          defaultValue: '1.0.0'
+          description: Checkout their docker page for the valid tags https://hub.docker.com/r/kgnfth/tumbly/tags
+          validRegex: /^([^\s^\/])+$/
+        - id: $$cap_tz
+          label: Timezone
+          description: This is the timezone for the application, find yours at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+          defaultValue: Europe/Brussels
+        - id: $$cap_puid
+          label: User ID
+          defaultValue: '1000'
+          description: User ID that the process uses, run (id $user) in your instance to see the id
+          validRegex: /.{1,}/
+        - id: $$cap_guid
+          label: Group ID
+          defaultValue: '1000'
+          description: Group ID that the process uses, run (id $user) in your instance to see the id
+          validRegex: /.{1,}/
+        - id: $$cap_app_name
+          label: App name
+          defaultValue: 'Tumbly'
+          description: Application name
+        - id: $$cap_tumblr_key
+          label: Tumblr Api key
+        - id: $$cap_tumblr_secret
+          label: Tumblr Secret key
+    instructions:
+        start: >-
+            Tumbly is a quick, lite and clean Tumblr Client Web App.
+        end: >-
+            Aaaand you're done! 😄
+            Your service is available at http://$$cap_appname.$$cap_root_domain
+    displayName: 'Tumbly'
+    isOfficial: true
+    description: Tumbly is a quick, lite and clean Tumblr Client Web App.
+    documentation: Taken from https://hub.docker.com/r/kgnfth/tumbly

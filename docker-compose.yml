@@ -1,0 +1,27 @@
+#-------------------------------------------
+# Docker Compose
+# @kgnfth
+# Repo : https://github.com/kgnfth/Tumbly-Docker
+#-------------------------------------------
+
+version: '3'
+
+services:
+  tumbly:
+    image: kgnfth/tumbly
+    container_name: tumbly
+    ports:
+      - 90:80
+    volumes:
+      - ./tumbly/conf:/conf
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - PHP_TZ=UTC
+      - APP_NAME=Laravel
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_URL=http://localhost
+      - TUMBLR_API_KEY=
+      - TUMBLR_SECRET_KEY=
+    restart: unless-stopped
