@@ -61,7 +61,7 @@ RUN \
     mkdir -p Tumbly/.git/refs/heads && \
     mv Tumbly/HEAD Tumbly/.git/HEAD && \
     mv Tumbly/main Tumbly/.git/refs/heads/main && \
-    cd /var/www/html && \
+    cd /var/www/html/Tumbly && \
     composer install --prefer-dist && \
     composer dump-autoload && \
     npm install && \
