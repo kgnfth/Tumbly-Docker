@@ -4,13 +4,13 @@ FROM debian:bookworm-slim
 LABEL maintainer="kgnfth"
 
 # Environment variables
-ENV PUID='101'
-ENV PGID='101'
+ENV PUID='1000'
+ENV PGID='1000'
 ENV USER='tumbly'
 ENV PHP_TZ=UTC
 
 # Arguments
-# To use the latest Tumbly release instead of master pass `--build-arg TARGET=release` to `docker build`
+# To use the latest Tumbly release instead of main pass `--build-arg TARGET=release` to `docker build`
 ARG TARGET=dev
 
 # Install base dependencies, add user and group, clone the repo and install php libraries
@@ -55,12 +55,12 @@ RUN \
     adduser --gecos '' --no-create-home --disabled-password --uid "$PUID" --gid "$PGID" "$USER" && \
     cd /var/www/html && \
     git clone https://github.com/kgnfth/Tumbly.git && \
-    mv Tumbly/.git/refs/heads/master Tumbly/master || cp Tumbly/.git/HEAD Tumbly/master && \
+    mv Tumbly/.git/refs/heads/main Tumbly/main || cp Tumbly/.git/HEAD Tumbly/main && \
     mv Tumbly/.git/HEAD Tumbly/HEAD && \
     rm -r Tumbly/.git/* && \
     mkdir -p Tumbly/.git/refs/heads && \
     mv Tumbly/HEAD Tumbly/.git/HEAD && \
-    mv Tumbly/master Tumbly/.git/refs/heads/master && \
+    mv Tumbly/main Tumbly/.git/refs/heads/main && \
     cd /var/www/html && \
     composer install --prefer-dist && \
     composer dump-autoload && \
