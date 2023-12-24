@@ -30,7 +30,7 @@ echo "**** Make sure the /conf and /uploads folders exist ****"
 [ ! -d /conf ]    && mkdir -p /conf
 
 
-cd /usr/share/nginx/html/Tumbly
+cd /var/www/html/Tumbly
 
 echo "**** Copy the .env to /conf ****" && \
 [ ! -e /conf/.env ] && \
