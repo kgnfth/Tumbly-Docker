@@ -4,7 +4,7 @@ set -e
 
 # Read Last commit hash from .git
 # This prevents installing git, and allows display of commit
-read -r longhash < /usr/share/nginx/html/Tumbly/.git/refs/heads/master
+read -r longhash < /var/www/html/Tumbly/.git/refs/heads/master
 shorthash=$(echo $longhash |cut -c1-7)
 target=dev
 echo '
@@ -34,9 +34,9 @@ cd /usr/share/nginx/html/Tumbly
 
 echo "**** Copy the .env to /conf ****" && \
 [ ! -e /conf/.env ] && \
-	sed 's|^#TUMBLR_API_KEY=$|TUMBLR_API_KEY='$TUMBLR_API_KEY'|' /usr/share/nginx/html/Tumbly/.env.example > /conf/.env
-[ ! -L /usr/share/nginx/html/Tumbly/.env ] && \
-	ln -s /conf/.env /usr/share/nginx/html/Tumbly/.env
+	sed 's|^#TUMBLR_API_KEY=$|TUMBLR_API_KEY='$TUMBLR_API_KEY'|' /var/www/html/Tumbly/.env.example > /conf/.env
+[ ! -L /var/www/html/Tumbly/.env ] && \
+	ln -s /conf/.env /var/www/html/Tumbly/.env
 echo "**** Inject .env values ****" && \
 	/inject.sh
 
@@ -46,12 +46,16 @@ echo "**** Inject .env values ****" && \
 	touch /tmp/first_run
 
 echo "**** Create user and use PUID/PGID ****"
-PUID=${PUID:-101}
-PGID=${PGID:-101}
+PUID=${PUID:-1000}
+PGID=${PGID:-1000}
 if [ ! "$(id -u "$USER")" -eq "$PUID" ]; then usermod -o -u "$PUID" "$USER" ; fi
 if [ ! "$(id -g "$USER")" -eq "$PGID" ]; then groupmod -o -g "$PGID" "$USER" ; fi
 echo -e " \tUser UID :\t$(id -u "$USER")"
 echo -e " \tUser GID :\t$(id -g "$USER")"
+usermod -a -G "$USER" www-data
+
+echo "**** Make sure Laravel's log exists ****" && \
+touch /logs/laravel.log
 
 echo "**** Set Permissions ****" && \
 chown -R "$USER":"$USER" /conf/.env
