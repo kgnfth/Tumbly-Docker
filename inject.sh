@@ -12,7 +12,7 @@ if [ "$APP_URL" != '' ]; then
     sed -i "s|APP_URL=.*|APP_URL=${APP_URL}|i" /conf/.env
 fi
 if [ "$PHP_TZ" != '' ]; then
-    sed -i "s|;*date.timezone =.*|date.timezone = ${PHP_TZ}|i" /etc/php7/php.ini
+    sed -i "s|;*date.timezone =.*|date.timezone = ${PHP_TZ}|i" /etc/php8.2/php.ini
 fi
 if [ "$DEBUGBAR_ENABLED" != '' ]; then
     sed -i "s|DEBUGBAR_ENABLED=.*|DEBUGBAR_ENABLED=${DEBUGBAR_ENABLED}|i" /conf/.env
