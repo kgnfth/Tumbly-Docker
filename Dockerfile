@@ -21,23 +21,23 @@ RUN \
     apt-get install -qy --no-install-recommends\
     adduser \
     nginx-light \
-    php7-mysqli \
-    php7-pgsql \
-    php7-sqlite3 \
-    php7-imagick \
-    php7-mbstring \
-    php7-json \
-    php7-gd \
-    php7-xml \
-    php7-zip \
-    php7-fpm \
-    php7-redis \
-    php7-dom \
-    php7-xmlwriter \
-    php7-tokenizer \
-    php7-bcmath \
-    php7-ctype \
-    php7-pdo \
+    php8.2-mysqli \
+    php8.2-pgsql \
+    php8.2-sqlite3 \
+    php8.2-imagick \
+    php8.2-mbstring \
+    php8.2-json \
+    php8.2-gd \
+    php8.2-xml \
+    php8.2-zip \
+    php8.2-fpm \
+    php8.2-redis \
+    php8.2-dom \
+    php8.2-xmlwriter \
+    php8.2-tokenizer \
+    php8.2-bcmath \
+    php8.2-ctype \
+    php8.2-pdo \
     curl \
     git \
     npm \
