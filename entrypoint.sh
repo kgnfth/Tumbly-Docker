@@ -4,7 +4,7 @@ set -e
 
 # Read Last commit hash from .git
 # This prevents installing git, and allows display of commit
-read -r longhash < /var/www/html/Tumbly/.git/refs/heads/master
+read -r longhash < /var/www/html/Tumbly/.git/refs/heads/main
 shorthash=$(echo $longhash |cut -c1-7)
 target=dev
 echo '
