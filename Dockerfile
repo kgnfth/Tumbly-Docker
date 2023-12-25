@@ -21,23 +21,23 @@ RUN \
     apt-get install -qy --no-install-recommends \
     adduser \
     nginx-light \
-    php7.3-mysqli \
-    php7.3-pgsql \
-    php7.3-sqlite3 \
-    php7.3-imagick \
-    php7.3-mbstring \
-    php7.3-gd \
-    php7.3-xml \
-    php7.3-json \
-    php7.3-zip \
-    php7.3-fpm \
-    php7.3-redis \
-    php7.3-dom \
-    php7.3-xmlwriter \
-    php7.3-tokenizer \
-    php7.3-bcmath \
-    php7.3-ctype \
-    php7.3-pdo \
+    php7.4-mysqli \
+    php7.4-pgsql \
+    php7.4-sqlite3 \
+    php7.4-imagick \
+    php7.4-mbstring \
+    php7.4-gd \
+    php7.4-xml \
+    php7.4-json \
+    php7.4-zip \
+    php7.4-fpm \
+    php7.4-redis \
+    php7.4-dom \
+    php7.4-xmlwriter \
+    php7.4-tokenizer \
+    php7.4-bcmath \
+    php7.4-ctype \
+    php7.4-pdo \
     curl \
     git \
     npm \

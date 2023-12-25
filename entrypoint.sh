@@ -63,5 +63,5 @@ chown -R "$USER":"$USER" /conf/.env
 chmod -R ug+w,ugo+rX /conf/.env
 
 echo "**** Setup complete, starting the server. ****"
-php-fpm7.3
+php-fpm7.4
 exec $@
