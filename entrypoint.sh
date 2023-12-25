@@ -28,6 +28,7 @@ fi
 
 echo "**** Make sure the /conf and /uploads folders exist ****"
 [ ! -d /conf ]    && mkdir -p /conf
+[ ! -d /logs ]    && mkdir -p /logs
 
 
 cd /var/www/html/Tumbly
