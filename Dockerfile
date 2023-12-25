@@ -18,7 +18,7 @@ RUN \
     set -ev && \
     apt-get update && \
     apt-get upgrade -qy && \
-    apt-get install -qy --no-install-recommends\
+    apt-get install -qy --no-install-recommends \
     adduser \
     nginx-light \
     php8.2-mysqli \
