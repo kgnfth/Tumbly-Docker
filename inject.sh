@@ -12,7 +12,7 @@ if [ "$APP_URL" != '' ]; then
     sed -i "s|APP_URL=.*|APP_URL=${APP_URL}|i" /conf/.env
 fi
 if [ "$PHP_TZ" != '' ]; then
-    sed -i "s|;*date.timezone =.*|date.timezone = ${PHP_TZ}|i" /etc/php/8.2/php.ini
+    sed -i "s|;*date.timezone =.*|date.timezone = ${PHP_TZ}|i" /etc/php/7.3/php.ini
 fi
 if [ "$DEBUGBAR_ENABLED" != '' ]; then
     sed -i "s|DEBUGBAR_ENABLED=.*|DEBUGBAR_ENABLED=${DEBUGBAR_ENABLED}|i" /conf/.env
@@ -24,6 +24,6 @@ if [ "$TUMBLR_SECRET_KEY" != '' ]; then
     sed -i "s|TUMBLR_SECRET_KEY=.*|TUMBLR_SECRET_KEY=${TUMBLR_SECRET_KEY}|i" /conf/.env
 fi
 if [ "$PHP_TZ" != '' ]; then
-    sed -i "s|;*date.timezone =.*|date.timezone = ${PHP_TZ}|i" /etc/php/8.2/cli/php.ini
-    sed -i "s|;*date.timezone =.*|date.timezone = ${PHP_TZ}|i" /etc/php/8.2/fpm/php.ini
+    sed -i "s|;*date.timezone =.*|date.timezone = ${PHP_TZ}|i" /etc/php/7.3/cli/php.ini
+    sed -i "s|;*date.timezone =.*|date.timezone = ${PHP_TZ}|i" /etc/php/7.3/fpm/php.ini
 fi
