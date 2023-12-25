@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 # Set version label
 LABEL maintainer="kgnfth"
