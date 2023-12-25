@@ -22,6 +22,7 @@ RUN \
     adduser \
     nginx-light \
     php7.4-mysqli \
+    php7.4-curl \
     php7.4-pgsql \
     php7.4-sqlite3 \
     php7.4-imagick \
